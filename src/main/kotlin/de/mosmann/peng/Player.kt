@@ -4,22 +4,25 @@ import com.almasb.fxgl.core.math.Vec2
 import com.almasb.fxgl.dsl.FXGL
 import com.almasb.fxgl.dsl.components.EffectComponent
 import com.almasb.fxgl.entity.component.Component
-import com.almasb.fxglgames.drop.DropApp
 
 class Player(val playfield: Playfield) : Component() {
 
     private var speed = 200.0
     private var direction: Direction? = null
 
-    override fun onUpdate(tpf: Double) {
+    override fun onUpdate(delta: Double) {
         var velocity = Vec2()
 
         if (direction!=null) {
             when (direction) {
-                Direction.Left -> velocity.x = -1f
-                Direction.Right -> velocity.x = 1f
-                Direction.Up -> velocity.y = -1f
-                Direction.Down -> velocity.y = 1f
+                Direction.Left ->
+                    velocity.x = -1f
+                Direction.Right ->
+                    velocity.x = 1f
+                Direction.Up ->
+                    velocity.y = -1f
+                Direction.Down ->
+                    velocity.y = 1f
             }
         }
 
@@ -27,8 +30,8 @@ class Player(val playfield: Playfield) : Component() {
             velocity = velocity.normalize().mul(speed)
         }
 
-        entity.x = playfield.clampX(entity.x + velocity.x * tpf)
-        entity.y = playfield.clampY(entity.y + velocity.y * tpf)
+        entity.x = playfield.clampX(entity.x + velocity.x * delta)
+        entity.y = playfield.clampY(entity.y + velocity.y * delta)
 
 
         direction = null
@@ -38,6 +41,9 @@ class Player(val playfield: Playfield) : Component() {
         this.direction = direction;
     }
 
+
+
+    
     companion object {
         fun create(playfield: Playfield): Player {
             val entity = FXGL.entityBuilder()
@@ -45,7 +51,7 @@ class Player(val playfield: Playfield) : Component() {
                 .at(0.0,0.0)
                 .viewWithBBox("player.png")
                 .collidable()
-                .with(Player(playfield), EffectComponent())
+                .with(Player(playfield)/*, EffectComponent()*/)
                 .buildAndAttach()
 
             return entity.getComponent(Player::class.java)
