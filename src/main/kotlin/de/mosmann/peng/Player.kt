@@ -7,6 +7,7 @@ import com.almasb.fxgl.entity.component.Component
 
 class Player(val playfield: Playfield) : Component() {
 
+    private var ghosts: List<Ghost> = emptyList()
     private var speed = 200.0
     private var direction: Direction? = null
 
@@ -33,6 +34,13 @@ class Player(val playfield: Playfield) : Component() {
         entity.x = playfield.clampX(entity.x + velocity.x * delta)
         entity.y = playfield.clampY(entity.y + velocity.y * delta)
 
+        ghosts.forEach {
+            val collide = it.entity.boundingBoxComponent.isCollidingWith(this.entity.boundingBoxComponent)
+            if (collide) {
+                println("crashed into $it")
+                entity.rotateBy(10.0)
+            }
+        }
 
         direction = null
     }
@@ -41,9 +49,11 @@ class Player(val playfield: Playfield) : Component() {
         this.direction = direction;
     }
 
+    fun addGhosts(vararg ghosts: Ghost) {
+        this.ghosts = listOf(*ghosts)
+    }
 
 
-    
     companion object {
         fun create(playfield: Playfield): Player {
             val entity = FXGL.entityBuilder()

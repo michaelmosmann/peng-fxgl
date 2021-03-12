@@ -4,6 +4,7 @@ import com.almasb.fxgl.app.GameApplication
 import com.almasb.fxgl.app.GameSettings
 import com.almasb.fxgl.dsl.*
 import com.almasb.fxgl.input.UserAction
+import com.almasb.fxgl.physics.CollisionHandler
 import javafx.scene.input.KeyCode
 
 class PengApp : GameApplication() {
@@ -23,8 +24,12 @@ class PengApp : GameApplication() {
     override fun initGame() {
         playerComponent = Player.create(playfield)
 
-        val ghost = Ghost.create(playfield)
+        val ghost = Ghost.create(playfield).moveTo(200.0,0.0)
         val ghost2 = Ghost.create(playfield).moveTo(100.0,50.0)
+
+//        getPhysicsWorld().addCollisionHandler()
+
+        playerComponent.addGhosts(ghost, ghost2)
     }
 
     override fun initInput() {
