@@ -1,4 +1,4 @@
-open module de.mosmann.test {
+open /*test*/ module test {
   requires de.mosmann.peng;
   requires com.almasb.fxgl.all;
   requires kotlin.stdlib;
