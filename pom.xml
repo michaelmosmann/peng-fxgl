@@ -115,7 +115,7 @@
 <!--                        <option>javafx.graphics/com.sun.glass.ui=ALL-UNNAMED</option>-->
 <!--                    </options>-->
 <!--                    <mainClass>drop.main/com.almasb.fxglgames.drop.DropApp</mainClass>-->
-                    <mainClass>de.mosmann.peng/de.mosmann.peng.PengAppStarter</mainClass>
+                    <mainClass>de.mosmann.peng.PengAppStarter</mainClass>
                 </configuration>
             </plugin>
 
