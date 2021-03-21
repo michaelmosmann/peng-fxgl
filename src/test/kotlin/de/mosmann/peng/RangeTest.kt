@@ -1,6 +1,6 @@
 package de.mosmann.peng
 
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 
@@ -10,6 +10,6 @@ internal class RangeTest {
         val a = Range(0,2)
         val b = Range(1,2)
 
-        Assertions.assertThat(a.intersec(b)).isTrue()
+        assertThat(a.intersec(b)).isTrue()
     }
 }
