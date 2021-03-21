@@ -8,7 +8,7 @@ internal class RangeTest {
     @Test
     fun rangesIntersectIfStartIsSmallerThanEnd() {
         val a = Range(0,2)
-        val b = Range(1,2)
+        val b = Range(1,3)
 
         assertThat(a.intersec(b)).isTrue()
     }
