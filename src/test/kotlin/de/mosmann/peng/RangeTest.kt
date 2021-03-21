@@ -12,4 +12,14 @@ internal class RangeTest {
 
         assertThat(a.intersec(b)).isTrue()
     }
+
+    @Test
+    fun rangesIntersectToo() {
+        val a = Range(1,2)
+        val b = Range(0,2)
+
+        assertThat(a.intersec(b)).isTrue()
+    }
+
+    // what
 }
