@@ -18,9 +18,15 @@ class Range(val start: Int, val length: Int) {
         // 0 <= 19 && 19 < (0+20) -> drin
         // 0 <= 20 && 20 < (0+20) --> nicht drin
 
-        if (start<=other.start && other.start< end) return true
-        if (start<= otherEnd && otherEnd < end) return true
-        
+        if (between(start, other.start, end)) return true
+        if (between(start, otherEnd, end)) return true
+
         return false
+    }
+
+    companion object {
+        fun between(start: Int, between: Int, endExclusive: Int): Boolean {
+            return start <= between && between < endExclusive
+        }
     }
 }
