@@ -1,8 +1,8 @@
 package de.mosmann.peng
 
-class Range(val start: Int, val length: Int) {
+class DoubleRange(val start: Double, val length: Double) {
 
-    fun intersec(other: Range): Boolean {
+    fun intersec(other: DoubleRange): Boolean {
         val end = start + length
         val otherEnd = other.start + other.length
 
@@ -25,12 +25,12 @@ class Range(val start: Int, val length: Int) {
     }
 
     companion object {
-        fun between(start: Int, between: Int, endExclusive: Int): Boolean {
+        fun between(start: Double, between: Double, endExclusive: Double): Boolean {
             return start <= between && between < endExclusive
         }
 
-        fun of(start: Int, end: Int): Range {
-            return Range(start, end-start)
+        fun of(start: Double, end: Double): DoubleRange {
+            return DoubleRange(start, end - start)
         }
     }
 }

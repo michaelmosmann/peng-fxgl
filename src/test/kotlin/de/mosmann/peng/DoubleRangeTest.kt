@@ -4,28 +4,28 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 
-internal class RangeTest {
+internal class DoubleRangeTest {
     @Test
     fun rangesIntersectIfStartIsSmallerThanEnd() {
-        val a = Range(0,2)
-        val b = Range(1,3)
+        val a = DoubleRange(0.0,2.0)
+        val b = DoubleRange(1.0,3.0)
 
         assertThat(a.intersec(b)).isTrue()
     }
 
     @Test
     fun rangesIntersectToo() {
-        val a = Range(1,2)
-        val b = Range(0,2)
+        val a = DoubleRange(1.0,2.0)
+        val b = DoubleRange(0.0,2.0)
 
         assertThat(a.intersec(b)).isTrue()
     }
 
     @Test
     fun rangesDontIntersect() {
-        val a = Range.of(0,20)
-        val b = Range.of(20,22)
-        val c = Range.of(22,30)
+        val a = DoubleRange.of(0.0,20.0)
+        val b = DoubleRange.of(20.0,22.0)
+        val c = DoubleRange.of(22.0,30.0)
 
         assertThat(a.intersec(b)).isFalse()
         assertThat(b.intersec(c)).isFalse()
@@ -33,8 +33,8 @@ internal class RangeTest {
 
     @Test
     fun testeBeispiele() {
-        istDrin(0,19,20)
-        istNichtDrin(0,20,20)
+        istDrin(0.0,19.9999,20.0)
+        istNichtDrin(0.0,20.0,20.0)
 
         // 0 <= 19 && 19 < (0+20) --> drin
         // 0 <= 20 && 20 < (0+20) --> nicht drin
@@ -50,11 +50,11 @@ internal class RangeTest {
         // 0 <= 20 && 20 < (0+20) --> nicht drin
     }
 
-    private fun istDrin(start: Int, wert: Int, endExclusive: Int) {
-        assertThat(Range.between(start,wert,endExclusive)).isTrue()
+    private fun istDrin(start: Double, wert: Double, endExclusive: Double) {
+        assertThat(DoubleRange.between(start,wert,endExclusive)).isTrue()
     }
 
-    private fun istNichtDrin(start: Int, wert: Int, endExclusive: Int) {
-        assertThat(Range.between(start,wert,endExclusive)).isFalse()
+    private fun istNichtDrin(start: Double, wert: Double, endExclusive: Double) {
+        assertThat(DoubleRange.between(start,wert,endExclusive)).isFalse()
     }
 }
