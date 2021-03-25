@@ -77,9 +77,17 @@ class Ghost(val playfield: Playfield) : Component() {
         return this
     }
 
+    fun kill() {
+        if (!isKilled()) {
+            entity.rotateBy(45.0)
+            speed = 0.0
+        }
+    }
 
+    fun isKilled(): Boolean {
+        return speed==0.0
+    }
 
-    
 
     companion object {
         fun create(playfield: Playfield): Ghost {

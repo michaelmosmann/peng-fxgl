@@ -36,9 +36,8 @@ class Player(val playfield: Playfield) : Component() {
 
         ghosts.forEach {
             val collide = it.entity.boundingBoxComponent.isCollidingWith(this.entity.boundingBoxComponent)
-            if (collide) {
-                println("crashed into $it")
-                entity.rotateBy(10.0)
+            if (collide && !it.isKilled()) {
+                it.kill()
             }
         }
 
@@ -46,7 +45,7 @@ class Player(val playfield: Playfield) : Component() {
     }
 
     fun move(direction: Direction?) {
-        this.direction = direction;
+        this.direction = direction
     }
 
     fun addGhosts(vararg ghosts: Ghost) {
