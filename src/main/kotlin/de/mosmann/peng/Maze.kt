@@ -32,6 +32,17 @@ class Maze(val rows: List<Row>, val columns: Int) {
                 rows.joinToString(separator = "\n",prefix = "", postfix = "")
     }
 
+    fun whatIsAt(position: MazePosition): Field {
+        val row = rows[position.row]
+        return row.columns[position.column]
+    }
+
+    fun canIWalkTo(position: MazePosition, direction: Direction): Boolean {
+        val field = whatIsAt(position.next(direction))
+
+        return field == Field.Free
+    }
+
     class Row(val columns: List<Field>) {
         override fun toString(): String {
             return columns.map { it.char }.joinToString(separator = "")
