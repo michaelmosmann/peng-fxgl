@@ -9,7 +9,10 @@ data class Maze(
     val columns: Int
 ) {
     fun isWall(mazePosition: MazePosition): Boolean {
-        return TODO("Not yet implemented")
+       val rowindex = mazePosition.row
+        val row: String = rows.get(rowindex)
+        val field: Char = row.get(mazePosition.column)
+        return field == '#'
     }
 
     companion object {

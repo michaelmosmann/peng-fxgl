@@ -63,4 +63,11 @@ internal class MazeTest {
         
         assertThat(isWall).isTrue
     }
+    @Test
+    fun isnotWallAtOneOne() {
+        val maze = Maze.create(commonMaze)
+        val isWall = maze.isWall(MazePosition(1,1))
+
+        assertThat(isWall).isFalse
+    }
 }
