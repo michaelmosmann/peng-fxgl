@@ -19,7 +19,7 @@ package de.mosmann.peng
  *
  *
  */
-class Maze(val rows: List<Row>, val columns: Int) {
+class OurFirstMaze(val rows: List<Row>, val columns: Int) {
     enum class Field(val char: Char) {
         Free(' '),
         Corner('+'),
@@ -50,7 +50,7 @@ class Maze(val rows: List<Row>, val columns: Int) {
     }
 
     companion object {
-        fun create(fieldAsString: String): Maze {
+        fun create(fieldAsString: String): OurFirstMaze {
             val rows: List<String> = fieldAsString.split('\n')
             val lens = rows.map { row -> row.length }
             val columns = lens.maxOf { it }
@@ -60,7 +60,7 @@ class Maze(val rows: List<Row>, val columns: Int) {
             }
 
             val mappedRows = rows.map { row -> Row(fieldsOfRow(row)) }
-            return Maze(mappedRows, columns)
+            return OurFirstMaze(mappedRows, columns)
         }
 
         fun fieldsOfRow(row: String): List<Field> {

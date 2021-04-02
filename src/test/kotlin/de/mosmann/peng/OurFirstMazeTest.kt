@@ -3,11 +3,11 @@ package de.mosmann.peng
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-internal class MazeTest {
+internal class OurFirstMazeTest {
 
     @Test
     fun useMaze() {
-        val maze = Maze.create(
+        val maze = OurFirstMaze.create(
             "" +
                     "+---------+\n" +
                     "| | |     |\n" +
@@ -19,9 +19,9 @@ internal class MazeTest {
 
         println(maze)
 
-        val type: Maze.Field = maze.whatIsAt(MazePosition(0,0))
+        val type: OurFirstMaze.Field = maze.whatIsAt(MazePosition(0,0))
 
-        assertThat(type).isEqualTo(Maze.Field.Corner)
+        assertThat(type).isEqualTo(OurFirstMaze.Field.Corner)
 
         val walkToRightPossible: Boolean = maze.canIWalkTo(MazePosition(0,0),Direction.Right)
 
@@ -62,7 +62,7 @@ internal class MazeTest {
         println("current: $current - $currentDirection")
     }
 
-    fun showPosition(maze: Maze, position: MazePosition) {
+    fun showPosition(maze: OurFirstMaze, position: MazePosition) {
         val sb=StringBuilder()
         maze.rows.forEachIndexed { r, row ->
             row.columns.forEachIndexed { c, field ->
