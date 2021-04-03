@@ -9,10 +9,23 @@ data class Maze(
     val columns: Int
 ) {
     fun isWall(mazePosition: MazePosition): Boolean {
-       val rowindex = mazePosition.row
+        val rowindex = mazePosition.row
         val row: String = rows.get(rowindex)
         val field: Char = row.get(mazePosition.column)
         return field == '#'
+    }
+
+    fun canWalkInto(mazePosition: MazePosition, direction: Direction): Boolean {
+        // Hinweise:
+        //   in der Klasse MazePosition gibt es schon eine Funktion,
+        //   mit der wir eine neue MazePosition in der entsprechenden Richtung bekommen
+        //   versuche mal herauszufinden, in welcher Reihenfolge Du etwas tun musst.
+        //
+        // Tipp: wenn du ausgehend von der aktuellen Position die neue Position ermittelst
+        //   und dann nachsiehst, ob da ne Wand ist, sollte das eigentlich reichen
+
+        val canWalk: Boolean = TODO("Not yet implemented")
+        return canWalk
     }
 
     companion object {

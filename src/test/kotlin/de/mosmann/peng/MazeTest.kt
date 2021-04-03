@@ -63,11 +63,29 @@ internal class MazeTest {
         
         assertThat(isWall).isTrue
     }
+
     @Test
     fun isnotWallAtOneOne() {
         val maze = Maze.create(commonMaze)
         val isWall = maze.isWall(MazePosition(1,1))
 
         assertThat(isWall).isFalse
+    }
+
+    /**
+     * Wir haben ja jetzt ne Funktion, die uns für eine Stelle sagen kann, ob da ne Wand ist.
+     * Darauf aufbauend brauchen wir jetzt ne Funktion, die uns sagen kann, ob man von einer Position
+     * in eine bestimmte Richtung laufen kann.
+     */
+    @Test
+    fun directionsWeCanWalkAtOneOne() {
+        val maze = Maze.create(commonMaze)
+
+        val position = MazePosition(1, 1)
+
+        assertThat(maze.canWalkInto(position, Direction.Up)).isFalse
+        assertThat(maze.canWalkInto(position, Direction.Right)).isFalse
+        assertThat(maze.canWalkInto(position, Direction.Down)).isTrue
+        assertThat(maze.canWalkInto(position, Direction.Left)).isFalse
     }
 }
