@@ -24,8 +24,9 @@ data class Maze(
         // Tipp: wenn du ausgehend von der aktuellen Position die neue Position ermittelst
         //   und dann nachsiehst, ob da ne Wand ist, sollte das eigentlich reichen
 
-        val canWalk: Boolean(maze.canWalkInto(position; Direction.Down))
-        return canWalk
+        val newMazePositionInDirection: MazePosition = mazePosition.nextPositionInto(direction)
+        val isNewMazePositionAWall: Boolean = isWall(newMazePositionInDirection)
+        return !isNewMazePositionAWall
     }
 
     companion object {

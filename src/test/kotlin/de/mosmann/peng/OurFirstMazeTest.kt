@@ -55,7 +55,7 @@ internal class OurFirstMazeTest {
             } else {
                 currentDirection = walkableDirections[0]
             }
-            current = current.next(currentDirection)
+            current = current.nextPositionInto(currentDirection)
 
         } while (current!=start)
         

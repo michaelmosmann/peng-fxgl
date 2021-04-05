@@ -38,7 +38,7 @@ class OurFirstMaze(val rows: List<Row>, val columns: Int) {
     }
 
     fun canIWalkTo(position: MazePosition, direction: Direction): Boolean {
-        val field = whatIsAt(position.next(direction))
+        val field = whatIsAt(position.nextPositionInto(direction))
 
         return field == Field.Free
     }
