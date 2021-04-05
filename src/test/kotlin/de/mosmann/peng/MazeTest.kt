@@ -78,7 +78,7 @@ internal class MazeTest {
      * in eine bestimmte Richtung laufen kann.
      */
     @Test
-    fun directionsWeCanWalkAtOneOne() {
+    fun directionsWeCanWalkAtOneOne(maze.canWalkInto(position, Direction.Down) {
         val maze = Maze.create(commonMaze)
 
         val position = MazePosition(1, 1)

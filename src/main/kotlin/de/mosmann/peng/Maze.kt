@@ -24,7 +24,7 @@ data class Maze(
         // Tipp: wenn du ausgehend von der aktuellen Position die neue Position ermittelst
         //   und dann nachsiehst, ob da ne Wand ist, sollte das eigentlich reichen
 
-        val canWalk: Boolean = TODO("Not yet implemented")
+        val canWalk: Boolean(maze.canWalkInto(position; Direction.Down))
         return canWalk
     }
 
