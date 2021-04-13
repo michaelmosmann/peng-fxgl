@@ -3,8 +3,7 @@ package de.mosmann.peng
 import com.almasb.fxgl.app.GameApplication
 import com.almasb.fxgl.app.GameSettings
 import com.almasb.fxgl.dsl.*
-import com.almasb.fxgl.input.UserAction
-import com.almasb.fxgl.physics.CollisionHandler
+import de.mosmann.peng.maze.MazeLayer
 import javafx.scene.input.KeyCode
 
 class PengApp : GameApplication() {
@@ -21,6 +20,14 @@ class PengApp : GameApplication() {
     private lateinit var playfield: Playfield
     private lateinit var playerComponent: Player
 
+    private val maze = Maze.create("" +
+            "###########\n" +
+            "# # #     #\n" +
+            "# #       #\n" +
+            "# ###     #\n" +
+            "#         #\n" +
+            "###########")
+
     override fun initGame() {
         playerComponent = Player.create(playfield)
 
@@ -30,6 +37,8 @@ class PengApp : GameApplication() {
 //        getPhysicsWorld().addCollisionHandler()
 
         playerComponent.addGhosts(ghost, ghost2)
+
+        val mazeLayer = MazeLayer.create(playfield, maze, 64)
     }
 
     override fun initInput() {
