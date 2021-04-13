@@ -4,7 +4,7 @@ object BasicTasks {
 
     fun add(number: Int, otherNumber: Int): Int {
         // zwei nummern addieren und das Ergebnis zurückgeben
-        return TODO()
+        return number + otherNumber
     }
 
     // Hier die Dokumentation von Sprachkonstrukten
@@ -14,13 +14,15 @@ object BasicTasks {
     fun min(number: Int, otherNumber: Int): Int {
         // zwei nummern vergleichen
         // die kleinere zurück geben
-        return TODO()
+        val min = if (number > otherNumber) otherNumber else number
+        return min
     }
 
     fun max(number: Int, otherNumber: Int): Int {
         // zwei nummern vergleichen
         // die größere zurück geben
-        return TODO()
+        val max = if (number >otherNumber) number else otherNumber
+        return max
     }
 
     fun firstCharacter(value: String): Char {
@@ -33,11 +35,11 @@ object BasicTasks {
         // get()-Funktion auf einen Wert mit einem Index zugreifen
         // folgende Schreibweisen sind dabei gleichbedeutend
         // variable.get(index) == variable[index]
-        return TODO()
+        return value.get(0)
     }
 
     fun firstEntry(value: Array<Int>): Int {
         // das Prinzip ist hier das selbe wie bei firstCharacter
-        return TODO()
+        return value.get(0)
     }
 }
