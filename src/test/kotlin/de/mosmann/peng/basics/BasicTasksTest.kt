@@ -34,4 +34,16 @@ internal class BasicTasksTest {
         assertThat(BasicTasks.firstEntry(arrayOf(1,2,3))).isEqualTo(1)
         assertThat(BasicTasks.firstEntry(arrayOf(3,3,3))).isEqualTo(3)
     }
+
+    @Test
+    fun checkLastCharFunction() {
+        assertThat(BasicTasks.lastCharacter("Klaus")).isEqualTo('s')
+        assertThat(BasicTasks.lastCharacter("Susi")).isEqualTo('i')
+    }
+
+    @Test
+    fun checkLongestStringFunction() {
+        assertThat(BasicTasks.longestString("hi","hoo")).isEqualTo("hoo")
+        assertThat(BasicTasks.longestString("what","now")).isEqualTo("what")
+    }
 }

@@ -42,4 +42,23 @@ object BasicTasks {
         // das Prinzip ist hier das selbe wie bei firstCharacter
         return value.get(0)
     }
+
+    fun lastCharacter(value: String): Char {
+        // das letzte Zeichen in dem String zurück geben
+        // Hinweis: die Zählung beginnt bei 0
+        // Beispiel: das letzte Zeichen von 'Hallo' ist 'o', die Länge ist 5,
+        // der Buchstabe an Index=0 ist H
+        val len = value.length
+        return TODO()
+    }
+
+    fun longestString(text: String, otherText: String): String {
+        // gebe den String zurück, der länger ist
+        // ist so ähnlich wie die max()-Funktion,
+        // nur das du hier den Wert selbst, sondern eine Eigenschaft
+        // des Wertes (die Länge) vergleichst
+        return TODO()
+    }
+
+
 }
