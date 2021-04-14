@@ -21,7 +21,7 @@ object BasicTasks {
     fun max(number: Int, otherNumber: Int): Int {
         // zwei nummern vergleichen
         // die größere zurück geben
-        val max = if (number >otherNumber) number else otherNumber
+        val max = if (number > otherNumber) number else otherNumber
         return max
     }
 
@@ -49,7 +49,7 @@ object BasicTasks {
         // Beispiel: das letzte Zeichen von 'Hallo' ist 'o', die Länge ist 5,
         // der Buchstabe an Index=0 ist H
         val len = value.length
-        return TODO()
+        return value.get(value.length -1)
     }
 
     fun longestString(text: String, otherText: String): String {
@@ -57,7 +57,8 @@ object BasicTasks {
         // ist so ähnlich wie die max()-Funktion,
         // nur das du hier den Wert selbst, sondern eine Eigenschaft
         // des Wertes (die Länge) vergleichst
-        return TODO()
+        val longestString = if (text > otherText) text else otherText
+        return longestString
     }
 
 
