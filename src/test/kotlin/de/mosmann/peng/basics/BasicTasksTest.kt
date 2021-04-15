@@ -54,6 +54,6 @@ internal class BasicTasksTest {
 
     @Test
     fun checkTextWithSpacer() {
-        assertThat(BasicTasks.putSpacerBetweenEachChar("hallo",'-')).isEqualTo("h-a-l-l-o-")
+        assertThat(BasicTasks.putSpacerBetweenEachChar("hi",'_')).isEqualTo("h_i")
     }
 }

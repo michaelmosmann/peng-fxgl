@@ -27,7 +27,7 @@ object BasicTasks {
         return max
     }
 
-    fun firstCharacter(value: String): Char {
+    fun firstCharacter(text: String): Char {
         // gebe den ersten Buchstaben zurück
         // in den meisten Programmiersprachen fängt man
         // bei 0 zu zählen an, und nicht bei 1
@@ -37,21 +37,21 @@ object BasicTasks {
         // get()-Funktion auf einen Wert mit einem Index zugreifen
         // folgende Schreibweisen sind dabei gleichbedeutend
         // variable.get(index) == variable[index]
-        return value.get(0)
+        return text.get(0)
     }
 
-    fun firstEntry(value: Array<Int>): Int {
+    fun firstEntry(numbers: Array<Int>): Int {
         // das Prinzip ist hier das selbe wie bei firstCharacter
-        return value.get(0)
+        return numbers.get(0)
     }
 
-    fun lastCharacter(value: String): Char {
+    fun lastCharacter(text: String): Char {
         // das letzte Zeichen in dem String zurück geben
         // Hinweis: die Zählung beginnt bei 0
         // Beispiel: das letzte Zeichen von 'Hallo' ist 'o', die Länge ist 5,
         // der Buchstabe an Index=0 ist H
-        val len = value.length
-        return value.get(value.length -1)
+        val len = text.length
+        return text.get(text.length -1)
     }
 
     fun longestString(text: String, otherText: String): String {
@@ -88,7 +88,14 @@ object BasicTasks {
         // sein
         val sb=StringBuilder()
 
-        TODO()
+        val lastPosition = text.length - 1
+
+        for (i in 0..lastPosition) {
+            sb.append(text.get(i))
+            if(i != lastPosition) {
+                sb.append(spacer)
+            }
+        }
 
         return sb.toString()
     }
