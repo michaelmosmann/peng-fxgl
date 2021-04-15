@@ -1,5 +1,7 @@
 package de.mosmann.peng.basics
 
+import java.lang.StringBuilder
+
 object BasicTasks {
 
     fun add(number: Int, otherNumber: Int): Int {
@@ -61,5 +63,33 @@ object BasicTasks {
         return longestString
     }
 
+    fun numberListAsString(max: Int): String {
+        // diese Funktion erzeugt für eine Zahl max einen
+        // String, der z.B. für max=3 wie folgt aussieht
+        // 0,1,2,3,
+        // das soll als Anregung dienen, wie du die Funktion drunter
+        // vielleicht implementieren könntest
+        // die Klasse StringBuilder ist eine Hilfsklasse zum zusammenbauen
+        // von Strings
+        val sb=StringBuilder()
 
+        for (i in 0..max) {
+            sb.append(i).append(",")
+        }
+
+        return sb.toString()
+    }
+
+    fun putSpacerBetweenEachChar(text: String, spacer: Char): String {
+        // diese Funktion soll zwischen jeden Buchstaben in einem Text ein
+        // Zeichen dazwischen packen
+        // wenn text="hallo" und spacer='-' ist, sollte das Ergebnis
+        // h-a-l-l-o-
+        // sein
+        val sb=StringBuilder()
+
+        TODO()
+
+        return sb.toString()
+    }
 }

@@ -46,4 +46,14 @@ internal class BasicTasksTest {
         assertThat(BasicTasks.longestString("hi","hoo")).isEqualTo("hoo")
         assertThat(BasicTasks.longestString("what","now")).isEqualTo("what")
     }
+
+    @Test
+    fun numbersAsString() {
+        assertThat(BasicTasks.numberListAsString(3)).isEqualTo("0,1,2,3,")
+    }
+
+    @Test
+    fun checkTextWithSpacer() {
+        assertThat(BasicTasks.putSpacerBetweenEachChar("hallo",'-')).isEqualTo("h-a-l-l-o-")
+    }
 }
