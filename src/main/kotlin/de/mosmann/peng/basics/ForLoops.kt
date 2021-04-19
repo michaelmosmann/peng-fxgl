@@ -38,9 +38,24 @@ object ForLoops {
         //for (eineZahl in alleZahlen){
         //  summe = summe + eineZahl
         //}
-        for (eineZahl in start until end + 1 step 1){
-            summe = summe + eineZahl
+
+//        for (eineZahl in start until end + 1 step 1){
+//            summe = summe + eineZahl
+//        }
+
+        var eineZahl = start // wir legen einen Startwert fest
+        while (eineZahl<=end == true) { // prüfen wir, ob wir den block {} ausführen müssen
+            // wir addieren zu dem letzen Wert von
+            // summe eineZahl hinzu und weisen den neuen Wert der Variablen mit dem Namen summe zu.
+            val neueSumme = summe + eineZahl
+            summe = neueSumme
+
+            val naechsteZahl = eineZahl + 1
+            eineZahl=naechsteZahl
         }
+
+
+
         return summe
     }
 
@@ -52,10 +67,27 @@ object ForLoops {
         // der schleife verhindern müssen(da gibt es mehr als eine Lösung,
         // wähle die, auf die Du als erstes kommst)
 
-        var sum = 0
-        
-        TODO()
+        var summe = 0
 
-        return sum
+        var eineZahl = start // 10
+        while (eineZahl<end == true) {
+            summe = summe + eineZahl
+
+            eineZahl=eineZahl+1
+        }
+
+//        for (int eineZahl=start; eineZahl<end; eineZahl=eineZahl+1) {
+//
+//        }
+//        for (eineZahl in start until end step 1){
+//            summe = summe + eineZahl
+//        }
+
+//        for (eineZahl in start..(end-1)) {
+//            summe = summe + eineZahl
+//        }
+
+
+        return summe
     }
 }
