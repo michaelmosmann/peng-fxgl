@@ -16,7 +16,7 @@ object ForLoops {
     fun sumOfNumbers(start: Int, end: Int): Int {
         // addiere alle Zahlen von start bis end (inkl. end)
 
-        var sum = 0
+
 
         // wie bei der Funktion, wo wir aus hallo h_a_l_l_o gemacht haben,
         // könnte man das als Ablaufplan wie folgt darstellen:
@@ -30,9 +30,18 @@ object ForLoops {
         // for (kannstDuNennenWieDuWillst in ?..?) {
         //  ??
         // }
-        TODO()
 
-        return sum
+        var summe = 0
+
+
+        val alleZahlen: IntRange = start..end
+        //for (eineZahl in alleZahlen){
+        //  summe = summe + eineZahl
+        //}
+        for (eineZahl in start until end + 1 step 1){
+            summe = summe + eineZahl
+        }
+        return summe
     }
 
     fun sumOfNumbersWithoutEnd(start: Int, end: Int): Int {
